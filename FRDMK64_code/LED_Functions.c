@@ -7,5 +7,5 @@ void LED_on(){
 }
 
 void LED_off(){
-	GPIOB_PCOR = 0x01<<22;//Turn On LED
+	GPIOB_PSOR = 0x01<<22;//Turn off LED
 }

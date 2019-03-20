@@ -1,3 +1,5 @@
+#include "UART_Functions.h"
+
 int lookUpTable(char a,int count, int currentNum){
 	int i = (int)a;
 	switch(i){
