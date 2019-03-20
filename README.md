@@ -5,7 +5,7 @@ This project is intended to creat smell TV.
 
 <ul>
   <li>A 3D printable box that realises perfumes, that can interface through usb with your computer.</li>
-  <li>Develope and video editing platform that can indicate when smells should be realised from the 3D box.</li>
+  <li>Develope a video editing platform that can indicate when smells should be realised from the 3D box.</li>
 </ul>
 
 <h1>What stages of development are we in? </h1>
