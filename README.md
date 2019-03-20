@@ -10,4 +10,4 @@ This project is intended to creat smell TV.
 
 <h1>What stages of development are we in? </h1>
 
- This is currently in the <strong>idea-stage</strong>. Any new participates or suggestions will be welcomed.
+ This is currently in the <strong>devlopment-stage</strong>. Any new participates or suggestions will be welcomed.
