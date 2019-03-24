@@ -1,5 +1,7 @@
 
 #include "fsl_device_registers.h"
+#include "Switch_Functions.h"
+#include "UART_Functions.h"
 
 void init_FTM(){
 
@@ -43,12 +45,19 @@ void delay(int t, int PULSE_LENGTH){
 	//Loop while we havnt reached the
 	//value to be counted to
 	while(count < delayThreshold){
-		if(FTM0_MOD == FTM0_C0V){
-			FTM0_C0V = 0;
-			count++;
-		}else{
-			FTM0_C0V += 1000;
+		//Interupt delay with switch
+		if(switch_pressed()){
+			if(FTM0_MOD == FTM0_C0V){
+				FTM0_C0V = 0;
+				count++;
+			}else{
+				FTM0_C0V += 1000;
+			}
+		} else{
+			//TODO Puase the video
+			while(!switch_pressed());
 		}
+
 	}
 }
 

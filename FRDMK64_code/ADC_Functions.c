@@ -54,7 +54,7 @@ void init_ADC(){
 
 }
 
-void getADC(){
+int getADC(){
 
 	//What for the coco to be 1 this flag tells us conversion complete(coco)
 	//When coco = 0 then the conversion is not complete

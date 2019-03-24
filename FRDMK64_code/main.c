@@ -43,7 +43,7 @@ void initialize_all(){
 	init_UART();
 }
 
-int main(void)
+int main()
 {
 	//Variables
 	int timeToSpray = 0;

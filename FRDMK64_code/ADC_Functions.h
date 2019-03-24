@@ -4,7 +4,7 @@
 
 void init_ADC();
 
-void getADC();
+int getADC();
 
 
 #endif
