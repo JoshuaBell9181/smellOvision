@@ -39,23 +39,28 @@ void init_FTM(){
 
 void delay(int t, int PULSE_LENGTH){
 	t = t * PULSE_LENGTH;
+	int pressed = 0;
+	pressed = GPIOC_PDIR & 0x00000040;
 	FTM0_C0V |= 1000;
 	int delayThreshold = t;
 	int count = 0;
 	//Loop while we havnt reached the
 	//value to be counted to
 	while(count < delayThreshold){
-		//Interupt delay with switch
-		if(switch_pressed()){
+
+		if(pressed){
 			if(FTM0_MOD == FTM0_C0V){
 				FTM0_C0V = 0;
 				count++;
 			}else{
 				FTM0_C0V += 1000;
 			}
+			pressed = GPIOC_PDIR & 0x00000040;
 		} else{
-			//TODO Puase the video
-			while(!switch_pressed());
+			//Debounce button
+			for(int i =0; i<1000000; i++);
+			pressed = switch_pressed();
+
 		}
 
 	}

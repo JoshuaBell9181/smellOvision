@@ -22,7 +22,18 @@ void switch_init(){
 }
 
 int switch_pressed(){
-	int pressed = 0;
-	pressed = GPIOC_PDIR & 0x00000040;
-	return pressed;
+
+   int pressed = 0;
+   int temp = 0;
+   pressed = GPIOC_PDIR & 0x00000040;
+
+   while(pressed){
+	  pressed = GPIOC_PDIR & 0x00000040;
+   }
+   while(!pressed){
+	  pressed = GPIOC_PDIR & 0x00000040;
+	  temp = pressed;
+   }
+
+   return temp;
 }
