@@ -5,14 +5,24 @@ import java.io.File;
 import javafx.application.Application;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.DoubleProperty;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Group;  
-import javafx.scene.Scene;  
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.media.Media;  
-import javafx.scene.media.MediaPlayer;  
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaPlayer.Status;
 import javafx.scene.media.MediaView;  
-import javafx.stage.Stage;  
+import javafx.stage.Stage;
+import jssc.SerialPort;
+import jssc.SerialPortException;  
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 
-public class VideoPlayer extends Application  
+public class VideoPlayer extends Application
 {  
   
 	static String path = "";
@@ -40,19 +50,27 @@ public class VideoPlayer extends Application
           
         //by setting this property to true, the Video will be played   
         mediaPlayer.setAutoPlay(true);  
+        
+        VideoStatus status = new VideoStatus();
+        VideoStatusListener listener = new VideoStatusListener(mediaPlayer);
+        status.addPropertyChangeListener(listener);
+        
+        PauseVideo pauser = new PauseVideo(status);
+        
+        
+        Thread object = new Thread(pauser);
+        object.start();
           
         //setting group and scene   
         Group root = new Group();  
-        root.getChildren().add(mediaView);  
+        root.getChildren().add(mediaView);
         Scene scene = new Scene(root,800,500);  
         primaryStage.setScene(scene);  
         primaryStage.setTitle("Playing video");  
         primaryStage.show();  
-    }  
+         
+    }
+
     
-//    When running this file as javafx you must use this main function
-//    public static void main(String[] args) {  
-//        launch(args);  
-//    }  
       
 }  
