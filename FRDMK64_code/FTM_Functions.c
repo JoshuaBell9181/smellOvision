@@ -39,6 +39,7 @@ void init_FTM(){
 
 void delay(int t, int PULSE_LENGTH){
 	t = t * PULSE_LENGTH;
+	char status = 'c';
 	int pressed = 0;
 	pressed = GPIOC_PDIR & 0x00000040;
 	FTM0_C0V |= 1000;
@@ -57,12 +58,16 @@ void delay(int t, int PULSE_LENGTH){
 			}
 			pressed = GPIOC_PDIR & 0x00000040;
 		} else{
-			//Debounce button
-			for(int i =0; i<1000000; i++);
+			status = 'p';
+			putChar(status);
+			for(int i =0; i <1000000;i++);
 			pressed = switch_pressed();
-
+			status = 'c';
+			putChar(status);
 		}
 
 	}
+
 }
+
 
