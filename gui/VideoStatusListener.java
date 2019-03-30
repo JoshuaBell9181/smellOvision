@@ -6,6 +6,12 @@ import java.beans.PropertyChangeListener;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaPlayer.Status;
 
+
+/*
+ * Created By: Joshua Bell
+ * Description: Creates a listener object to determine if pause/play detected
+ */
+
 public class VideoStatusListener implements PropertyChangeListener {
 
 	MediaPlayer mediaPlayer;
