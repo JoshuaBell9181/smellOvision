@@ -58,6 +58,7 @@ public class VideoPlayer extends Application
         //by setting this property to true, the Video will be played   
         mediaPlayer.setAutoPlay(true);  
         
+
         VideoStatus status = new VideoStatus();
         VideoStatusListener listener = new VideoStatusListener(mediaPlayer);
         status.addPropertyChangeListener(listener);
@@ -67,6 +68,7 @@ public class VideoPlayer extends Application
         
         Thread object = new Thread(pauser);
         object.start();
+
           
         //setting group and scene   
         Group root = new Group();  
