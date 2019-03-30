@@ -3,6 +3,12 @@ package gui;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
+
+/*
+ * Created By: Joshua Bell
+ * Description: Creates an object to determine the status of the video
+ */
+
 public class VideoStatus {
     protected PropertyChangeSupport propertyChangeSupport;
     private String text;
