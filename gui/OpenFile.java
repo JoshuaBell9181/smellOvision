@@ -25,6 +25,13 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.awt.event.ActionEvent;
 
+
+
+/*
+ * Created By: Joshua Bell
+ * Description: Creates a graphical user interface for the user to select file to play
+ */
+
 public class OpenFile extends JFrame {
 
 	private JPanel contentPane;

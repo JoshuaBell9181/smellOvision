@@ -14,9 +14,22 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaPlayer.Status;
 import javafx.scene.media.MediaView;  
-import javafx.stage.Stage;  
+import javafx.stage.Stage;
+import jssc.SerialPort;
+import jssc.SerialPortException;  
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 
-public class VideoPlayer extends Application  
+
+
+/*
+ * Created By: Joshua Bell
+ * Description: Creates a video player frame which can display .MP4 files
+ */
+
+public class VideoPlayer extends Application
 {  
   
 	static String path = "";
@@ -45,38 +58,28 @@ public class VideoPlayer extends Application
         //by setting this property to true, the Video will be played   
         mediaPlayer.setAutoPlay(true);  
         
-         //Play and Pause button
-        Button playPause = new Button("Play/Pause");
-        playPause.setOnAction(new EventHandler<ActionEvent>() {
 
-			@Override
-			public void handle(ActionEvent event) {
-				Status currentStatus = mediaPlayer.getStatus();
-				
-				if(currentStatus == Status.PLAYING) {
-					mediaPlayer.pause();
-				} else if(currentStatus == Status.PAUSED || currentStatus == Status.STOPPED) {
-					System.out.println("Player will start at:" + mediaPlayer.getCurrentTime());
-					mediaPlayer.play();
-				}
-				
-			}
-        	
-        });
+        VideoStatus status = new VideoStatus();
+        VideoStatusListener listener = new VideoStatusListener(mediaPlayer);
+        status.addPropertyChangeListener(listener);
+        
+        PauseVideo pauser = new PauseVideo(status);
+        
+        
+        Thread object = new Thread(pauser);
+        object.start();
+
           
         //setting group and scene   
         Group root = new Group();  
         root.getChildren().add(mediaView);
-        root.getChildren().add(playPause);  
         Scene scene = new Scene(root,800,500);  
         primaryStage.setScene(scene);  
         primaryStage.setTitle("Playing video");  
         primaryStage.show();  
-    }  
+         
+    }
+
     
-//    When running this file as javafx you must use this main function
-//    public static void main(String[] args) {  
-//        launch(args);  
-//    }  
       
 }  
