@@ -12,6 +12,12 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.awt.event.ActionEvent;
 
+
+/*
+ * Created By: Joshua Bell
+ * Description: Creates a graphical user interface for the user to interact with appilcation
+ */
+
 public class MainWindow {
 
 	private JFrame frame;
