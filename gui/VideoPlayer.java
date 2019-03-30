@@ -22,6 +22,13 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 
+
+
+/*
+ * Created By: Joshua Bell
+ * Description: Creates a video player frame which can display .MP4 files
+ */
+
 public class VideoPlayer extends Application
 {  
   
