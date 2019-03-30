@@ -23,6 +23,11 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.awt.event.ActionEvent;
 
+/*
+ * Created By: Joshua Bell
+ * Description: Creates a graphical user interface for the user to create smellOvision files
+ */
+
 public class CreateFile extends JFrame {
 
 	private JPanel contentPane;
