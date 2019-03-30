@@ -3,6 +3,12 @@ package gui;
 import jssc.SerialPort;
 import jssc.SerialPortException;
 
+
+/*
+ * Created By: Joshua Bell
+ * Description: Serial communicate to FRDMK64 board that the timer should resume/pause
+ */
+
 public class PauseVideo implements Runnable{
 	
 	static String videoStatus = null;
