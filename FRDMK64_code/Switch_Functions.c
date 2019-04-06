@@ -12,7 +12,7 @@ void switch_init(){
 	// enable PTC6 for the sw
 	PORTC_PCR6 |= PORT_PCR_MUX(1);
 
-	// enable PTC6 for the LED
+	// enable PTB22 for led
 	PORTB_PCR22 |= PORT_PCR_MUX(1);
 
 	// LED - output
