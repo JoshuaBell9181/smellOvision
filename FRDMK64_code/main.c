@@ -36,13 +36,23 @@
 #include "UART_Functions.h"
 #include "System_Timer.h"
 
-
+/* Created By: Matt MacLenna
+*  Description: Initialize all the Modules used
+*  Input: None
+*  Returns: None
+*/
 void initialize_all(){
 	init_FTM();
 	init_GPIO();
 	init_UART();
 }
 
+/* Created By: Joshua Bell
+*  Description: Monitors the System and ensures that the spray is activated at the right time along with the right 
+*  motor speed.
+*  Input: None
+*  Returns: None
+*/
 int main()
 {
 	//Variables
