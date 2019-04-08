@@ -54,7 +54,6 @@ int main()
 {
 	//Variables
 	int timeToSpray = 0;
-	const int PULSE_LEGNTH_CONST = 0x560e;
 
 	//Initialize modules
 	initialize_all();
@@ -67,14 +66,13 @@ int main()
 			char* test = "The number was received!";
 
 			LED_on();//Turn On LED
-			delay(timeToSpray,PULSE_LEGNTH_CONST);
+			delay(timeToSpray);
 			int speed = getSpeed();
 			LED_off();//Turn off LED
 
-			//Set motor speed
 			speed = getSpeed();
 			setMotorSpeed(speed);
-			delay(4,PULSE_LEGNTH_CONST);
+			delay(5);
 			setMotorSpeed(0);
 
 			// Should display the contents of test string to the putty terminal

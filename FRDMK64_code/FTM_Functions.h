@@ -15,6 +15,6 @@ void init_FTM();
 * Input Paramaters: t is time in seconds and PULSE_LENGTH is used to manipulate delay time
 * Return: None
 */ 
-void delay(int t, int PULSE_LENGTH);
+void delay(int time);
 
 #endif
