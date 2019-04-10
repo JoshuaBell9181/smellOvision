@@ -90,6 +90,7 @@ void delay(int time){
 					FTM0_SC &= ~(0x80);
 
 			}//end if
+			pressed = GPIOC_PDIR & 0x00000040;
 		} else {
 			status = 'p';
 			putChar(status);
