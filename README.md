@@ -4,7 +4,7 @@ This project is intended to creat smell TV.
 <h1>How will this be accomplished?</h1>
 
 <ul>
-  <li>A 3D printable box that realises perfumes, that can interface through usb with your computer.</li>
+  <li>A wooden laser cut box that realises perfumes, that can interface through usb with your computer.</li>
   <li>Develope a video editing platform that can indicate when smells should be realised from the 3D box.</li>
 </ul>
 
